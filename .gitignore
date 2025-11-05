@@ -26,3 +26,4 @@ cert
 .env
 .cursor
 out
+react-component-builder-toolkit-*.vsix
