@@ -2,7 +2,7 @@
   "name": "react-component-builder-toolkit",
   "displayName": "React Component Builder Toolkit",
   "description": "Quickly create React components with TypeScript",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "publisher": "cuongbuoi",
   "icon": "images/icon.png",
   "license": "MIT",
@@ -26,7 +26,7 @@
       "properties": {
         "reactComponentBuilderToolkit.componentTemplate": {
           "type": "string",
-          "default": "interface {ComponentName}Props {}\n\nexport const {ComponentName}: React.FC<{ComponentName}Props> = () => {\n  return (\n    <div>{ComponentName}</div>\n  );\n};\n",
+          "default": "import { FC } from 'react';\n\nexport const {ComponentName}: FC<{ComponentName}Props> = () => {\n  return (\n    <div>{ComponentName}</div>\n  );\n};\n",
           "markdownDescription": "Template for the component file. Use `{ComponentName}` placeholder."
         },
         "reactComponentBuilderToolkit.indexTemplate": {
@@ -79,12 +79,15 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
+    "vscode:prepublish": "yarn compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "pretest": "npm run compile && npm run lint",
+    "pretest": "yarn compile && yarn lint",
     "lint": "eslint src --ext ts",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "package": "yarn compile && vsce package",
+    "publish:vsce": "yarn package && vsce publish",
+    "publish:ovsx": "yarn package && npx ovsx publish"
   },
   "devDependencies": {
     "@types/glob": "^8.0.0",

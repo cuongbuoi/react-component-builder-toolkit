@@ -35,7 +35,7 @@ A VS Code extension to quickly create React components with TypeScript and custo
 
 ```json
 {
-  "reactComponentBuilderToolkit.componentTemplate": "interface {ComponentName}Props {}\n\nexport const {ComponentName}: React.FC<{ComponentName}Props> = () => {\n    return <div>{ComponentName}</div>;\n};",
+  "reactComponentBuilderToolkit.componentTemplate": "import { FC } from 'react';\n\nexport const {ComponentName}: FC<{ComponentName}Props> = () => {\n  return (\n    <div>{ComponentName}</div>\n  );\n};\n",
   "reactComponentBuilderToolkit.indexTemplate": "export { {ComponentName} } from './{ComponentName}';",
   "reactComponentBuilderToolkit.fileExtension": "tsx",
   "reactComponentBuilderToolkit.createIndexFile": true
