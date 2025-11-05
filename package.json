@@ -1,6 +1,6 @@
 {
-  "name": "react-component-generator",
-  "displayName": "React Component Generator",
+  "name": "react-component-builder-toolkit",
+  "displayName": "React Component Builder Toolkit",
   "description": "Quickly create React components with TypeScript",
   "version": "1.0.0",
   "publisher": "cuongbuoi",
@@ -17,24 +17,24 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:react-component-generator.createComponent"
+    "onCommand:react-component-builder-toolkit.createComponent"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "configuration": {
-      "title": "React Component Generator",
+      "title": "React Component Builder Toolkit",
       "properties": {
-        "reactComponentGenerator.componentTemplate": {
+        "reactComponentBuilderToolkit.componentTemplate": {
           "type": "string",
           "default": "interface {ComponentName}Props {}\n\nexport const {ComponentName}: React.FC<{ComponentName}Props> = () => {\n  return (\n    <div>{ComponentName}</div>\n  );\n};\n",
           "markdownDescription": "Template for the component file. Use `{ComponentName}` placeholder."
         },
-        "reactComponentGenerator.indexTemplate": {
+        "reactComponentBuilderToolkit.indexTemplate": {
           "type": "string",
           "default": "export { {ComponentName} } from './{ComponentName}';\n",
           "markdownDescription": "Template for index file. Use `{ComponentName}` placeholder."
         },
-        "reactComponentGenerator.fileExtension": {
+        "reactComponentBuilderToolkit.fileExtension": {
           "type": "string",
           "enum": [
             "tsx",
@@ -45,17 +45,17 @@
           "default": "tsx",
           "markdownDescription": "File extension for the generated component file."
         },
-        "reactComponentGenerator.createIndexFile": {
+        "reactComponentBuilderToolkit.createIndexFile": {
           "type": "boolean",
           "default": true,
           "markdownDescription": "Whether to create an index file alongside the component."
         },
-        "reactComponentGenerator.componentTemplatePath": {
+        "reactComponentBuilderToolkit.componentTemplatePath": {
           "type": "string",
           "default": "",
           "markdownDescription": "Absolute or workspace-relative path to a file whose contents will be used as the component template. If provided, this takes precedence over `componentTemplate`."
         },
-        "reactComponentGenerator.indexTemplatePath": {
+        "reactComponentBuilderToolkit.indexTemplatePath": {
           "type": "string",
           "default": "",
           "markdownDescription": "Absolute or workspace-relative path to a file whose contents will be used as the index template. If provided, this takes precedence over `indexTemplate`."
@@ -64,14 +64,14 @@
     },
     "commands": [
       {
-        "command": "react-component-generator.createComponent",
+        "command": "react-component-builder-toolkit.createComponent",
         "title": "Create React Component"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "react-component-generator.createComponent",
+          "command": "react-component-builder-toolkit.createComponent",
           "when": "explorerResourceIsFolder",
           "group": "navigation"
         }

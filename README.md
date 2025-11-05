@@ -1,4 +1,4 @@
-# React Component Generator
+# React Component Builder Toolkit
 
 A VS Code extension to quickly create React components with TypeScript and custom templates.
 
@@ -22,23 +22,23 @@ A VS Code extension to quickly create React components with TypeScript and custo
 ### Via GUI
 
 1. Open Settings (Ctrl+,)
-2. Search for "React Component Generator"
+2. Search for "React Component Builder Toolkit"
 3. Adjust the following options:
-   - reactComponentGenerator.componentTemplate: Template for the component file (use `{ComponentName}`)
-   - reactComponentGenerator.indexTemplate: Template for `index.ts` (use `{ComponentName}`)
-   - reactComponentGenerator.fileExtension: `tsx` | `ts` | `jsx` | `js`
-   - reactComponentGenerator.createIndexFile: Toggle creating `index.ts`
-   - reactComponentGenerator.componentTemplatePath: File path to the component template
-   - reactComponentGenerator.indexTemplatePath: File path to the index template
+   - reactComponentBuilderToolkit.componentTemplate: Template for the component file (use `{ComponentName}`)
+   - reactComponentBuilderToolkit.indexTemplate: Template for `index.ts` (use `{ComponentName}`)
+   - reactComponentBuilderToolkit.fileExtension: `tsx` | `ts` | `jsx` | `js`
+   - reactComponentBuilderToolkit.createIndexFile: Toggle creating `index.ts`
+   - reactComponentBuilderToolkit.componentTemplatePath: File path to the component template
+   - reactComponentBuilderToolkit.indexTemplatePath: File path to the index template
 
 ### Via settings.json
 
 ```json
 {
-  "reactComponentGenerator.componentTemplate": "interface {ComponentName}Props {}\n\nexport const {ComponentName}: React.FC<{ComponentName}Props> = () => {\n    return <div>{ComponentName}</div>;\n};",
-  "reactComponentGenerator.indexTemplate": "export { {ComponentName} } from './{ComponentName}';",
-  "reactComponentGenerator.fileExtension": "tsx",
-  "reactComponentGenerator.createIndexFile": true
+  "reactComponentBuilderToolkit.componentTemplate": "interface {ComponentName}Props {}\n\nexport const {ComponentName}: React.FC<{ComponentName}Props> = () => {\n    return <div>{ComponentName}</div>;\n};",
+  "reactComponentBuilderToolkit.indexTemplate": "export { {ComponentName} } from './{ComponentName}';",
+  "reactComponentBuilderToolkit.fileExtension": "tsx",
+  "reactComponentBuilderToolkit.createIndexFile": true
 }
 ```
 
@@ -46,8 +46,8 @@ Or specify templates via files (easier to edit, highlight, and format):
 
 ```json
 {
-  "reactComponentGenerator.componentTemplatePath": "./.templates/component.tsx",
-  "reactComponentGenerator.indexTemplatePath": "./.templates/index.ts.tpl"
+  "reactComponentBuilderToolkit.componentTemplatePath": "./.templates/component.tsx",
+  "reactComponentBuilderToolkit.indexTemplatePath": "./.templates/index.ts.tpl"
 }
 ```
 
@@ -63,20 +63,20 @@ Or specify templates via files (easier to edit, highlight, and format):
 **Functional Component + props + memo:**
 
 ```tsx
-"reactComponentGenerator.componentTemplate": "import React, { memo } from 'react';\n\ninterface {ComponentName}Props {\n  className?: string;\n}\n\nexport const {ComponentName}: React.FC<{ComponentName}Props> = memo(({ className }) => {\n  return (\n    <div className={className}>{ComponentName}</div>\n  );\n});\n\n{ComponentName}.displayName = '{ComponentName}';\n"
+"reactComponentBuilderToolkit.componentTemplate": "import React, { memo } from 'react';\n\ninterface {ComponentName}Props {\n  className?: string;\n}\n\nexport const {ComponentName}: React.FC<{ComponentName}Props> = memo(({ className }) => {\n  return (\n    <div className={className}>{ComponentName}</div>\n  );\n});\n\n{ComponentName}.displayName = '{ComponentName}';\n"
 ```
 
 **Index file re-export:**
 
 ```ts
-"reactComponentGenerator.indexTemplate": "export { {ComponentName} } from './{ComponentName}';\n"
+"reactComponentBuilderToolkit.indexTemplate": "export { {ComponentName} } from './{ComponentName}';\n"
 ```
 
 **JS (no TypeScript):**
 
 ```json
 {
-  "reactComponentGenerator.fileExtension": "jsx",
-  "reactComponentGenerator.componentTemplate": "import React from 'react';\n\nexport const {ComponentName} = () => {\n  return (\n    <div>{ComponentName}</div>\n  );\n};\n"
+  "reactComponentBuilderToolkit.fileExtension": "jsx",
+  "reactComponentBuilderToolkit.componentTemplate": "import React from 'react';\n\nexport const {ComponentName} = () => {\n  return (\n    <div>{ComponentName}</div>\n  );\n};\n"
 }
 ```

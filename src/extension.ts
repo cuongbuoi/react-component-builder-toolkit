@@ -3,10 +3,10 @@ import * as path from 'path'
 import * as vscode from 'vscode'
 
 export function activate(context: vscode.ExtensionContext) {
-  console.log('React Component Generator is now active!')
+  console.log('React Component Builder Toolkit is now active!')
 
   let disposable = vscode.commands.registerCommand(
-    'react-component-generator.createComponent',
+    'react-component-builder-toolkit.createComponent',
     async (uri: vscode.Uri) => {
       // Get the path of the selected folder
       const folderPath = uri.fsPath
@@ -44,7 +44,7 @@ export function activate(context: vscode.ExtensionContext) {
         fs.mkdirSync(componentFolderPath)
 
         // Read configuration
-        const config = vscode.workspace.getConfiguration('reactComponentGenerator')
+        const config = vscode.workspace.getConfiguration('reactComponentBuilderToolkit')
         const fileExtension = (config.get<string>('fileExtension') || 'tsx').trim()
         const createIndexFile = config.get<boolean>('createIndexFile') ?? true
         const componentTemplatePath = (config.get<string>('componentTemplatePath') || '').trim()
