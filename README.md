@@ -1,41 +1,127 @@
 # React Component Builder Toolkit
 
-A VS Code extension to quickly create React components, hooks, and contexts with TypeScript and custom templates.
+<div align="center">
 
-## Features
+**Generate React Components, Hooks & Contexts in 3 Seconds**
 
-- Generate React components with a standard folder structure
-- Generate React hooks with custom templates
-- Generate React contexts with Provider and custom hook
-- Custom templates for components, hooks, contexts, and index files
-- Supports tsx, jsx, ts, js
-- Automatically generates a TypeScript interface
-- Validates component, hook, and context names
+Create production-ready React code with one right-click. Fully customizable templates for components, hooks, and contexts.
 
-## How to Use
+[![Visual Studio Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/cuongbuoi.react-component-builder-toolkit?style=for-the-badge&logo=visual-studio-code&label=VS%20Marketplace)](https://marketplace.visualstudio.com/items?itemName=cuongbuoi.react-component-builder-toolkit)
+[![Visual Studio Marketplace Downloads](https://img.shields.io/visual-studio-marketplace/d/cuongbuoi.react-component-builder-toolkit?style=for-the-badge&label=Downloads)](https://marketplace.visualstudio.com/items?itemName=cuongbuoi.react-component-builder-toolkit)
+[![Visual Studio Marketplace Rating](https://img.shields.io/visual-studio-marketplace/r/cuongbuoi.react-component-builder-toolkit?style=for-the-badge&label=Rating)](https://marketplace.visualstudio.com/items?itemName=cuongbuoi.react-component-builder-toolkit)
+[![Open VSX Version](https://img.shields.io/open-vsx/v/cuongbuoi/react-component-builder-toolkit?style=for-the-badge&logo=eclipse-ide&label=Open%20VSX)](https://open-vsx.org/extension/cuongbuoi/react-component-builder-toolkit)
 
-### Create React Component
+[🚀 Install for VSCode](https://marketplace.visualstudio.com/items?itemName=cuongbuoi.react-component-builder-toolkit) • [💻 Install for Cursor](https://open-vsx.org/extension/cuongbuoi/react-component-builder-toolkit) • [🐛 Report Bug](https://github.com/cuongbuoi/react-component-builder-toolkit/issues) • [✨ Request Feature](https://github.com/cuongbuoi/react-component-builder-toolkit/issues)
 
-1. Right-click a folder in Explorer
-2. Select "Create React Component"
-3. Enter the component name
-4. Done!
+</div>
 
-### Create React Hook
+---
 
-1. Right-click a folder in Explorer
-2. Select "Create React Hook"
-3. Enter the hook name (must start with "use", e.g., `useCustomHook`)
-4. Done!
+## 🎯 Why Developers Choose This Extension
 
-### Create React Context
+| Before                           | After                            |
+| -------------------------------- | -------------------------------- |
+| ❌ Manually create 3+ files      | ✅ One right-click               |
+| ❌ Copy-paste boilerplate code   | ✅ Auto-generated with templates |
+| ❌ Fix TypeScript types manually | ✅ Perfect types included        |
+| ❌ 1-3 minutes per component     | ✅ 3 seconds per component       |
+| ❌ Inconsistent code structure   | ✅ Standardized across team      |
 
-1. Right-click a folder in Explorer
-2. Select "Create React Context"
-3. Enter the context name (e.g., `AuthContext`)
-4. Done!
+## ⚡ Quick Start (30 Seconds Setup)
 
-## Configuration (Settings)
+### 1️⃣ Install Extension
+
+```bash
+# VSCode
+ext install cuongbuoi.react-component-builder-toolkit
+
+# Cursor
+cursor --install-extension cuongbuoi.react-component-builder-toolkit
+```
+
+### 2️⃣ Create Your First Component
+
+1. Right-click any folder → "Create React Component"
+2. Type: `UserProfile`
+3. Press Enter
+
+**Result:**
+
+```
+UserProfile/
+├── UserProfile.tsx    # Component with TypeScript
+└── index.ts          # Clean export
+```
+
+### 3️⃣ Create a Custom Hook
+
+1. Right-click folder → "Create React Hook"
+2. Type: `useAuth`
+3. Done!
+
+**Result:**
+
+```tsx
+// useAuth.ts
+export const useAuth = () => {
+  // Your hook logic
+  return { user, login, logout }
+}
+```
+
+### 4️⃣ Create a Context
+
+1. Right-click folder → "Create React Context"
+2. Type: `ThemeContext`
+3. Complete!
+
+**Result:**
+
+```tsx
+// ThemeContext.tsx with Provider & useThemeContext hook
+```
+
+## ✨ Features That Developers Love
+
+### 🎨 Fully Customizable Templates
+
+- **Components**: FC, memo, forwardRef, class components
+- **Hooks**: useState, useEffect, custom logic
+- **Contexts**: Provider pattern with TypeScript
+- **Via Settings GUI** or **Template Files** (.templates/component.tsx)
+
+### 🔧 Works With Your Stack
+
+✅ React 18+  
+✅ Next.js 13+ (App Router & Pages)  
+✅ Remix  
+✅ Vite  
+✅ Create React App  
+✅ TypeScript & JavaScript
+
+### 🚀 Productivity Boosters
+
+- One-click generation from context menu
+- Auto-creates folder structure
+- TypeScript interfaces included
+- Validates naming (PascalCase, useHook pattern)
+- Instantly opens created files
+
+### 📁 Smart File Organization
+
+```
+src/
+├── components/
+│   └── Button/
+│       ├── Button.tsx
+│       └── index.ts
+├── hooks/
+│   └── useLocalStorage.ts
+└── contexts/
+    └── AuthContext.tsx
+```
+
+## 📖 Complete Usage Guide
 
 ### Via GUI
 
@@ -146,26 +232,30 @@ The default context template includes:
 "reactComponentBuilderToolkit.contextTemplate": "import { createContext, useContext, ReactNode, useState } from 'react';\n\ninterface {ContextName}ContextType {\n  value: string;\n  setValue: (value: string) => void;\n}\n\nconst {ContextName}Context = createContext<{ContextName}ContextType | undefined>(undefined);\n\ninterface {ContextName}ProviderProps {\n  children: ReactNode;\n}\n\nexport const {ContextName}Provider = ({ children }: {ContextName}ProviderProps) => {\n  const [value, setValue] = useState<string>('');\n\n  const contextValue: {ContextName}ContextType = {\n    value,\n    setValue\n  };\n\n  return (\n    <{ContextName}Context.Provider value={contextValue}>\n      {children}\n    </{ContextName}Context.Provider>\n  );\n};\n\nexport const use{ContextName} = () => {\n  const context = useContext({ContextName}Context);\n  if (context === undefined) {\n    throw new Error('use{ContextName} must be used within a {ContextName}Provider');\n  }\n  return context;\n};\n"
 ```
 
-## Known Issues
+## 🐛 Known Issues
 
-None at the moment. Please [report issues](https://github.com/cuongbuoi/react-component-builder-toolkit/issues) if you find any!
+None at the moment! 🎉
 
-## Support
+Found a bug? [Report it here](https://github.com/cuongbuoi/react-component-builder-toolkit/issues)
 
-If you find this extension helpful and want to support its development:
+## ☕ Support This Project
+
+Love this extension? Support its development!
 
 <div align="center">
 
-<a href="https://www.buymeacoffee.com/cuongbuoi"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a beer&emoji=🍺&slug=cuongbuoi&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+<a href="https://www.buymeacoffee.com/cuongbuoi">
+  <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a beer&emoji=🍺&slug=cuongbuoi&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" />
+</a>
+
+**Your support helps:**
+
+- ⚡ Keep extension updated
+- ✨ Add requested features
+- 🐛 Fix bugs faster
+- 📚 Create more templates
 
 </div>
-
-**Your support helps me:**
-
-- Keep improving this extension
-- Create new features
-- Fix bugs faster
-- Develop more useful tools
 
 ## Contributing
 

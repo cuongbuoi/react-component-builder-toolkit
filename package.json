@@ -1,8 +1,8 @@
 {
   "name": "react-component-builder-toolkit",
-  "displayName": "React Component Builder Toolkit",
-  "description": "Quickly create React components with TypeScript",
-  "version": "1.1.0",
+  "displayName": "React Component Builder Toolkit - Components, Hooks & Context Generator",
+  "description": "Create React components, hooks, and contexts instantly! Right-click to generate TypeScript/JavaScript files with custom templates. Works with Next.js, Remix, and all React projects.",
+  "version": "1.1.1",
   "author": {
     "name": "Cuong Buoi"
   },
@@ -13,22 +13,44 @@
     "type": "git",
     "url": "https://github.com/cuongbuoi/react-component-builder-toolkit"
   },
+  "bugs": {
+    "url": "https://github.com/cuongbuoi/react-component-builder-toolkit/issues"
+  },
+  "homepage": "https://github.com/cuongbuoi/react-component-builder-toolkit#readme",
+  "galleryBanner": {
+    "color": "#1e293b",
+    "theme": "dark"
+  },
   "engines": {
     "vscode": "^1.75.0"
   },
   "categories": [
+    "Snippets",
+    "Programming Languages",
     "Other"
   ],
   "keywords": [
     "react",
     "component",
     "generator",
-    "builder",
-    "toolkit",
     "typescript",
-    "javascript",
-    "vscode",
-    "extension"
+    "hooks",
+    "context",
+    "nextjs",
+    "next.js",
+    "remix",
+    "scaffold",
+    "template",
+    "boilerplate",
+    "productivity",
+    "snippets",
+    "creator",
+    "builder",
+    "custom hooks",
+    "react hooks",
+    "context api",
+    "tsx",
+    "jsx"
   ],
   "activationEvents": [
     "onCommand:react-component-builder-toolkit.createComponent",
